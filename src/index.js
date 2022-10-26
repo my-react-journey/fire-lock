@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import App from "./App"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import About from "./routes/About"
+import Account from "./routes/Account"
+import Create from "./routes/Create"
+import Export from "./routes/Export"
+import Import from "./routes/Import"
+import Menu from "./routes/Menu"
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+import NotFoundError from "./routes/NothingHere"
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<BrowserRouter>
+		<Routes>
+			<Route path="/" element={<App />} />
+			<Route path="about" element={<About />} />
+			<Route path="create" element={<Create />} />
+			<Route path="export" element={<Export />} />
+			<Route path="import" element={<Import />} />
+			<Route path="menu" element={<Menu />} />
+			<Route path="account/:accountId" element={<Account />} />
+
+			<Route path="*" element={<NotFoundError />} />
+		</Routes>
+	</BrowserRouter>
+)
