@@ -49,9 +49,8 @@ function App() {
 						<AccountCard
 							key={account.id}
 							id={account.id}
-							label={account.label}
+							issuer={account.issuer}
 							account={account.account}
-							accountLabel={account.accountLabel}
 						/>
 					))
 				}
