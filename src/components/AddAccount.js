@@ -36,3 +36,52 @@ function parseURI(uri) {
 	return { type: type.toLowerCase(), label, query }
 }
 
+function retriveData(object) {
+    let data = {}
+
+    if(object?.label?.account) {
+        data.account = object.label.account
+    } else {
+        if(object?.query?.account) {
+            data.account = object.query.account
+        } else return null
+    }
+    
+    if(object?.query?.secret) {
+        data.secret = object.query.secret
+    } else return null
+
+    if(object?.label?.issuer) {
+        data.issuer = object.label.issuer
+    } else {
+        if(object?.query?.issuer) {
+            data.issuer = object.query.issuer
+        }
+    }
+
+    if(object?.query?.algorithm) {
+        data.algorithm = object.query.algorithm
+    } else {
+        data.algorithm = "SHA1"
+    }
+
+    if(object?.query?.digits) {
+        data.digits = parseInt(object.query.digits)
+    } else {
+        data.digits = 6
+    }
+
+    if(object?.query?.period) {
+        data.period = parseInt(object.query.period)
+    } else {
+        data.period = 30
+    }
+
+    return data
+}
+
+export function validateQR(string) {
+    let object = parseURI(string)
+    return retriveData(object)
+}
+
