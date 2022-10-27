@@ -1,3 +1,28 @@
+import {get, set} from "idb-keyval"
+import { v4 as uuidv4 } from 'uuid'
+
+
+async function checkAndRemoveIfAccountExists(data) {
+    let accounts = await get("accounts")
+    if(accounts) {
+        accounts = accounts.filter(account => account.account !== data.account && account.issuer !== data.issuer)
+        return accounts
+    }
+    return []
+}
+
+export async function addNewAccount(data) {
+    let accounts = await checkAndRemoveIfAccountExists(data)
+    if(accounts) {
+        data.id = uuidv4()
+        accounts.push(data)
+        await set("accounts", accounts)
+        return true
+    }
+    await set("accounts", [data])
+    return true
+}
+
 
 // Code I copied from otpauth-uri-parser
 function parseURI(uri) {
