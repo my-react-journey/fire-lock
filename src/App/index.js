@@ -15,6 +15,13 @@ function App() {
 	let [accounts, setAccounts] = useState()
 	let [showNoAccounts, setShowNoAccounts] = useState(false)
 
+	// didn't re-render when a new account was added, so I had to use useEffect
+	useEffect(() => {
+		if (window.location.search.includes("update=true")) {
+			window.location.href = window.location.href.replace("?update=true", "")
+		}
+	}, [])
+
 	let addHandler = () => navigate("/create")
 	let menuHandler = () => navigate("/menu")
 
