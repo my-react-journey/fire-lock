@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom"
 function AccountCard(props) {
     
     let navigate = useNavigate()
-    console.log(props)
 
     let handleClick = () => {
         let {id} = props
