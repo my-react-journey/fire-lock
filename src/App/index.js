@@ -1,6 +1,8 @@
 import styles from "./App.module.css"
 import menu from "./menu.webp"
 import plus from "./plus.webp"
+import sadCat from "./sadCat.webp"
+import line from "./line.svg"
 import { get, set } from "idb-keyval"
 import { useEffect, useState, useId } from "react"
 import { useNavigate } from "react-router-dom"
@@ -10,12 +12,10 @@ import AccountCard from "./AccountCard"
 
 function App() {
     let navigate = useNavigate()
-	let [acccounts, setAccounts] = useState()
+	let [accounts, setAccounts] = useState()
 
 	let addHandler = () => navigate("/create")
 	let menuHandler = () => navigate("/menu")
-
-
 
 	useEffect(() => {
 		get("accounts").then((accounts) => {
@@ -39,8 +39,8 @@ function App() {
 			</div>
 
 			<div className={styles.mainContent}>
-				{acccounts &&
-					acccounts.map((account) => (
+				{accounts &&
+					accounts.map((account) => (
 						<AccountCard
 							key={account.id}
 							id={account.id}
@@ -48,8 +48,15 @@ function App() {
 							account={account.account}
 							accountLabel={account.accountLabel}
 						/>
-					))}
+					))
+				}
+				{
+					accounts && accounts.length === 0 && (
+						<NoAccounts />
+					)
+				}
 			</div>
+
 		</>
 	)
 }

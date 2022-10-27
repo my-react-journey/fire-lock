@@ -39,3 +39,28 @@
 .mainContent {
     padding: 0.5rem 0.8rem;
 }
+
+.noAccounts {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.noAccounts img {
+    width: 150px;
+    height: 150px;
+}
+
+.noAccountsSubText {
+    padding-top: 2rem;
+    max-width: 50%;
+}
+
+.line {
+    position: absolute;
+    top: 55px;
+    right: 35px;
+}
