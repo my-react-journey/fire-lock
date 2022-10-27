@@ -51,7 +51,7 @@ function App() {
 					))
 				}
 				{
-					accounts.length === 0 && (
+					accounts == null && (
 						<NoAccounts />
 					)
 				}
