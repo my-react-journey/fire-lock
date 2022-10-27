@@ -1,0 +1,69 @@
+.cardHolder {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0.8rem;
+    margin: 0.3rem 0;
+    padding-left: 0.4rem;
+    border-left: 8px solid #0070f3;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.cardHolder:hover {
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.logoHolder {
+    margin-right: 1rem;
+}
+
+.logoHolder img{
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.contentLabel {
+    font-size: 1.3rem;
+}
+
+.contentEmail {
+    width: 23ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.navigatorHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navigatorHolder:hover, .navigatorHolder:focus {
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.338);
+}
+
+.navigatorHolder img {
+    width: 35px;
+    height: 35px;
+}
