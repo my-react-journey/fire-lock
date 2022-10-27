@@ -23,6 +23,24 @@ export async function addNewAccount(data) {
     return true
 }
 
+let IssuerPics = {
+    "Facebook": "./IssuerPics/Facebook.svg",
+    "Google": "./IssuerPics/Google.svg",
+    "Instagram": "./IssuerPics/Instagram.svg",
+    "LinkedIn": "./IssuerPics/LinkedIn.svg",
+    "Pinterest": "./IssuerPics/Pinterest.svg",
+    "Proton": "./IssuerPics/Proton.svg",
+    "Reddit": "./IssuerPics/Reddit.svg",
+    "Spotify": "./IssuerPics/Spotify.svg",
+    "Snapchat": "./IssuerPics/Snapchat.svg",
+    "Twitter": "./IssuerPics/Twitter.svg",
+    "WhatsApp": "./IssuerPics/WhatsApp.svg",
+}
+
+export function returnIssuerImage(issuer) {
+    if(IssuerPics[issuer]) return `./IssuerPics/${issuer}.svg`
+    return `./IssuerPics/default.svg`
+}
 
 // Code I copied from otpauth-uri-parser
 function parseURI(uri) {
