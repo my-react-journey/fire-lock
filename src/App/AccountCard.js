@@ -8,7 +8,9 @@ function AccountCard(props) {
 
     let handleClick = () => {
         let {id} = props
-        navigate(`/account/${id}`)
+        setTimeout(() => {
+            navigate(`/account/${id}`)
+        }, 100)
     }
 
 	return (

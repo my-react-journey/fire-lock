@@ -9,7 +9,7 @@
     border-bottom-left-radius: 0.2rem;
 }
 
-.cardHolder:hover {
+.cardHolder:hover, .cardHolder:focus {
     background-color: #1a1a1a;
     border-radius: 0.5rem;
     cursor: pointer;
