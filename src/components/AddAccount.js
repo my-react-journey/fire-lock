@@ -1,6 +1,9 @@
 import {get, set} from "idb-keyval"
 import { v4 as uuidv4 } from 'uuid'
 
+function AddAccount() {
+	return <></>
+}
 
 async function checkAndRemoveIfAccountExists(data) {
     let accounts = await get("accounts")
@@ -128,3 +131,4 @@ export function validateQR(string) {
     return retriveData(object)
 }
 
+export default AddAccount
