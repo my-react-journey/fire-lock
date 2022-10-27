@@ -3,8 +3,8 @@ import menu from "./menu.webp"
 import plus from "./plus.webp"
 import sadCat from "./sadCat.webp"
 import line from "./line.svg"
-import { get, set } from "idb-keyval"
-import { useEffect, useState, useId } from "react"
+import { get } from "idb-keyval"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
@@ -13,13 +13,18 @@ import AccountCard from "./AccountCard"
 function App() {
     let navigate = useNavigate()
 	let [accounts, setAccounts] = useState()
+	let [showNoAccounts, setShowNoAccounts] = useState(false)
 
 	let addHandler = () => navigate("/create")
 	let menuHandler = () => navigate("/menu")
 
 	useEffect(() => {
 		get("accounts").then((accounts) => {
-			setAccounts(accounts)
+			if( accounts != null) {
+				setAccounts(accounts)
+				return setShowNoAccounts(false)
+			}
+			setShowNoAccounts(true)
 		})
 	}, [])
 
@@ -51,7 +56,7 @@ function App() {
 					))
 				}
 				{
-					accounts == null && (
+					showNoAccounts && (
 						<NoAccounts />
 					)
 				}
