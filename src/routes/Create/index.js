@@ -1,19 +1,25 @@
 import Title from "../../components/Title"
 import { QrReader } from "react-qr-reader"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { validateQR, addNewAccount } from "../../components/AddAccount"
 import styles from "./Create.module.css"
+import keyboard from "./keyboard.svg"
 
 export default function Create() {
-	let [data, setData] = useState("No result")
+
+	let [instruction, setInstruction] = useState("Your account provider will display a QR Code. Scan it to add.")
+	let [errorSpan, setErrorSpan] = useState(styles.infoSpan)
+
+	let navigate = useNavigate()
+	let handleClick = () => navigate("/manual-entry")
+	let returnHome = () => navigate("/?update=true")
 
 	return (
 		<>
 			<Title titleName="Add an account" />
 			<div className={styles.container}>
-				<span className={styles.infoSpan}>
-					Your account provider will display a QR Code. Scan it to
-					add.
-				</span>
+				<span className={errorSpan}>{instruction}</span>
 				<QrReader
 					constraints={{ facingMode: "environment" }}
 					containerStyle={{
@@ -26,7 +32,15 @@ export default function Create() {
 					videoStyle={{ width: "85vw", height: "unset", borderRadius: "12px" }}
 					onResult={(result, error) => {
 						if (!!result) {
-							setData(result?.text)
+							let data = validateQR(result?.text)
+							if( data != null) {
+								addNewAccount(data)
+								returnHome()
+							} else {
+								console.log(data)
+								setInstruction("Invalid QR Code. Try again. Scan the QR Code provided by your account.")
+								setErrorSpan(styles.errorSpan + " " + styles.infoSpan)
+							}
 						}
 
 						if (!!error) {
@@ -35,7 +49,8 @@ export default function Create() {
 					}}
 					style={{ width: "100%" }}
 				/>
-				<p>{data}</p>
+				
+				<div onClick={handleClick} className={styles.enterCode} ><span>OR&nbsp;</span> <span>ENTER&nbsp;</span>CODE&nbsp;<span>MANUALLY</span><img src={keyboard} alt="keyboard" /></div>
 			</div>
 			<span></span>
 		</>
