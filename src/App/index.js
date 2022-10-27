@@ -51,7 +51,7 @@ function App() {
 					))
 				}
 				{
-					accounts && accounts.length === 0 && (
+					accounts.length === 0 && (
 						<NoAccounts />
 					)
 				}
