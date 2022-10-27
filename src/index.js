@@ -8,6 +8,7 @@ import Account from "./routes/Account"
 import Create from "./routes/Create"
 import Export from "./routes/Export"
 import Import from "./routes/Import"
+import ManualEntry from "./routes/ManualEntry"
 import Menu from "./routes/Menu"
 
 import NotFoundError from "./routes/NothingHere"
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 			<Route path="create" element={<Create />} />
 			<Route path="export" element={<Export />} />
 			<Route path="import" element={<Import />} />
+			<Route path="manual-entry" element={<ManualEntry />} />
 			<Route path="menu" element={<Menu />} />
 			<Route path="account/:accountId" element={<Account />} />
 
