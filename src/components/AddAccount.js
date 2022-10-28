@@ -40,9 +40,9 @@ let IssuerPics = {
     "WhatsApp": "./IssuerPics/WhatsApp.svg",
 }
 
-export function returnIssuerImage(issuer) {
-    if(IssuerPics[issuer]) return `./IssuerPics/${issuer}.svg`
-    return `./IssuerPics/default.svg`
+export function returnIssuerImage(issuer, string = "") {
+    if(IssuerPics[issuer]) return `${string}./IssuerPics/${issuer}.svg`
+    return `${string}./IssuerPics/default.svg`
 }
 
 // Code I copied from otpauth-uri-parser
