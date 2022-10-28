@@ -31,7 +31,7 @@ const Text = ({ text }) => {
 			dominantBaseline="central"
 			textAnchor="middle"
 			fill="#FFF"
-			fontSize={"1.1em"}
+			fontSize={"1em"}
 		>
 			{text}
 		</text>

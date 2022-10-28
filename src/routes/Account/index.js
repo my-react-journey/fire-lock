@@ -6,6 +6,7 @@ import AccountTitle from "../../components/AccountTitle"
 import * as OTPAuth from "otpauth"
 import renderStyle from "./RenderTime.module.css"
 import Pie from "./Progress"
+import toast from "react-simple-toasts"
 
 export default function Account() {
 	let [issuer, setIssuer] = useState("")
@@ -83,6 +84,12 @@ function RenderTime(props) {
 		}, 0)
 		return () => clearInterval(interval)
 	}, [token, algorithm, digits, period, secret, time])
+
+	let handleCopy = () => {
+		let text = token.replace(/\s/g, "")
+		navigator.clipboard.writeText(text)
+		toast("Copied to clipboard")
+	}
 	
 
 	return(
@@ -93,7 +100,7 @@ function RenderTime(props) {
 				</div>
 				<div className={renderStyle.right}>
 					<span className={renderStyle.heading}>{"One-time password code"}</span>
-					<span className={renderStyle.otpNumber}>{token}</span>
+					<span onClick={handleCopy} className={renderStyle.otpNumber}>{token}</span>
 				</div>
 			</div>
 		</>
