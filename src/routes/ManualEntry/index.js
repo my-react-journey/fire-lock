@@ -2,7 +2,7 @@ import Title from "../../components/Title"
 import styles from "./ManualEntry.module.css"
 import { addNewAccount, retriveData } from "../../components/AddAccount"
 import { useNavigate } from "react-router-dom"
-import { useState, useRef } from "react"
+import { useRef } from "react"
 
 export default function Account() {
 
@@ -13,7 +13,7 @@ export default function Account() {
 	let navigate = useNavigate()
 	let returnHome = () => navigate("/?update=true")
 
-	let [instruction, setInstruction] = useState("Enter the details provided by your account provider.")
+	let instruction = "Enter the details provided by your account provider."
 
 
 	let submitHandler = () => {
@@ -33,7 +33,7 @@ export default function Account() {
 	let validate = (issuerName, accountName, secretKey) => {
 		if(accountName && secretKey) {
 
-			if(issuerName == "") {
+			if(issuerName === "") {
 				if(accountName.includes("@")) {
 					issuerName = accountName.split("@")[1]
 					issuerName = issuerName.split(".")[0]
