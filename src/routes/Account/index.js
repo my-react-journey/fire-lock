@@ -1,15 +1,50 @@
+import { useParams, useNavigate } from "react-router-dom"
+import { get } from "idb-keyval"
 import { useEffect, useState } from "react"
+import { returnIssuerImage } from "../../components/AddAccount"
+import AccountTitle from "../../components/AccountTitle"
 import * as OTPAuth from "otpauth"
 import renderStyle from "./RenderTime.module.css"
 import Pie from "./Progress"
 
 export default function Account() {
-
+	let [issuer, setIssuer] = useState("")
+	let [account, setAccount] = useState("")
+	let [secret, setSecret] = useState("")
+	let [profile, setProfile] = useState("")
+	let [algorithm, setAlgorithm] = useState("SHA1")
+	let [digits, setDigits] = useState(6)
+	let [period, setPeriod] = useState(6)
+	let navigate = useNavigate()
 	let { accountId } = useParams()
+
+	useEffect(() => {
+		let returnHome = () => navigate("/")
+		async function run() {
+			let account = await retriveData(accountId)
+			if (account != null) {
+				setIssuer(account.issuer)
+				setAccount(account.account)
+				setSecret(account.secret)
+				setProfile(returnIssuerImage(account.issuer))
+				setAlgorithm(account.algorithm)
+				setDigits(account.digits)
+				setPeriod(account.period)
+			}
+		}
+		async function retriveData() {
+			let accounts = await get("accounts")
+			let account = accounts.filter((account) => account.id === accountId)[0]
+			if (account != null) return account
+			returnHome()
+		}
+		run()
+	}, [accountId, navigate])
 
 	return (
 		<>
-			<span>This is the Account {accountId} page</span>
+			<AccountTitle issuer={issuer} account={account} profile={profile} id={accountId} />
+			<RenderTime algorithm={algorithm} digits={digits} period={period} secret={secret} />
 		</>
 	)
 }
