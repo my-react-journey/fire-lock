@@ -1,0 +1,70 @@
+.accountTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #ffffff17;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    padding-right: 1.6rem;
+}
+
+.appName {
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-left: 0.3rem;
+    flex: 1;
+}
+
+.actionIconsAdd {
+    display: grid;
+    place-items: center;
+}
+
+.actionIconsAdd img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.actionIconsAdd img{
+    width: 35px;
+    height: 35px;
+    margin-left: 12px;
+}
+
+.cogIcon img{
+    width: 30px;
+    height: 30px;
+}
+
+.mainContent {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.right {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contentLabel {
+    font-size: 1.4rem;
+}
+
+.contentEmail {
+    width: 23ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
