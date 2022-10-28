@@ -1,4 +1,7 @@
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import * as OTPAuth from "otpauth"
+import renderStyle from "./RenderTime.module.css"
+import Pie from "./Progress"
 
 export default function Account() {
 
@@ -7,6 +10,57 @@ export default function Account() {
 	return (
 		<>
 			<span>This is the Account {accountId} page</span>
+		</>
+	)
+}
+
+function RenderTime(props) {
+
+	let {algorithm, digits, period, secret} = props
+
+	let [time, setTime] = useState("30")
+	let [token, setToken] = useState("000000")
+	let [percentage, setPercentage] = useState(0)
+
+	function getTime() {
+		let currentUnixTimeEpoch = Date.now() / 1000
+    	let timeValue = (30 - (currentUnixTimeEpoch % 30)).toFixed(0)
+		return timeValue !== 0 ? timeValue : 30
+	}
+	
+
+	useEffect(() => {
+
+		let interval = setInterval(() => {
+			setTime(getTime)
+			setPercentage((time / 30) * 100)
+
+			let totp = new OTPAuth.TOTP({
+				algorithm: algorithm,
+				digits: digits,
+				period: period,
+				secret: secret
+			})
+			let otp = totp.generate()
+			let otp1 = otp.slice(0, 3)
+			let otp2 = otp.slice(3, 6)
+			setToken(otp1 + " " + otp2)
+		}, 0)
+		return () => clearInterval(interval)
+	}, [token, algorithm, digits, period, secret, time])
+	
+
+	return(
+		<>
+			<div className={renderStyle.contentWrapper}>
+				<div className={renderStyle.left}>
+					<Pie percentage={percentage} colour="#0d7dff" text={time} />
+				</div>
+				<div className={renderStyle.right}>
+					<span className={renderStyle.heading}>{"One-time password code"}</span>
+					<span className={renderStyle.otpNumber}>{token}</span>
+				</div>
+			</div>
 		</>
 	)
 }

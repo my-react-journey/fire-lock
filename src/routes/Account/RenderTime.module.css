@@ -1,0 +1,31 @@
+.contentWrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    margin: 0.3rem;
+    background-color: #ffffff17;
+}
+
+.left {
+    min-width: 4ch;
+    display: grid;
+    place-items: center;
+}
+
+.right {
+    margin-left: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 1.2rem;
+    padding: 0.3rem 0 0.6rem;
+}
+
+.otpNumber {
+    font-size: 3rem;
+    color: #0d7dff;
+}
