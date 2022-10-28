@@ -1,6 +1,7 @@
 import left from "./left.svg"
 import settings from "./settings.svg"
 import styles from "./AccountTitle.module.css"
+import OTPEnabled from "./OTPEnabled"
 import { returnIssuerImage } from "../AddAccount"
 import { useNavigate } from "react-router-dom"
 
@@ -62,6 +63,7 @@ function Title(props) {
 					</div>
 				</div>
 			</div>
+			<OTPEnabled />
 		</>
 	)
 }
