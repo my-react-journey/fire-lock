@@ -82,7 +82,7 @@ function parseURI(uri) {
 	return { type: type.toLowerCase(), label, query }
 }
 
-function retriveData(object) {
+export function retriveData(object) {
     let data = {}
 
     if(object?.label?.account) {
