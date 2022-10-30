@@ -19,6 +19,13 @@ export default function Account() {
 	let navigate = useNavigate()
 	let { accountId } = useParams()
 
+	// didn't re-render when a new account was added, so I had to use useEffect
+	useEffect(() => {
+		if (window.location.search.includes("update=true")) {
+			window.location.href = window.location.href.replace("?update=true", "")
+		}
+	}, [])
+
 	useEffect(() => {
 		let returnHome = () => navigate("/")
 		async function run() {
