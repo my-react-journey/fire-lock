@@ -3,7 +3,7 @@ import menu from "./menu.webp"
 import plus from "./plus.webp"
 import sadCat from "./sadCat.webp"
 import line from "./line.svg"
-import { get } from "idb-keyval"
+import { get, set } from "idb-keyval"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -28,8 +28,10 @@ function App() {
 	useEffect(() => {
 		get("accounts").then((accounts) => {
 			if( accounts != null) {
-				setAccounts(accounts)
-				return setShowNoAccounts(false)
+				if(accounts.length !== 0) {
+					setAccounts(accounts)
+					return setShowNoAccounts(false)
+				}
 			}
 			setShowNoAccounts(true)
 		})
