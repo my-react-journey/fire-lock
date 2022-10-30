@@ -4,12 +4,19 @@
     justify-content: center;
 }
 
-.settingsCard {
+.settingsCard, .deleteCard {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.deleteCard {
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 2rem;
+    background-color: #121212;
 }
 
 .container input[type="text"] {
@@ -24,7 +31,7 @@
     outline: 1px solid #ffffff2e;
 }
 
-.button {
+.button, .deleteButton {
     padding: 0.5rem 0.8rem;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -47,13 +54,13 @@
     transition: background 0.8s;
 }
 
-.button:hover {
+.button:hover, .deleteButton:hover {
     background-color: #005ac2;
     background: #005ac2 -o-radial-gradient(circle, transparent 1%, #005ac2 1%) center/15000%;
     background: #005ac2 radial-gradient(circle, transparent 1%, #005ac2 1%) center/15000%;
 }
 
-.button:active {
+.button:active, .deleteButton:active {
     background-color: #0070f3;
     background-size: 100%;
     -webkit-transition: background 0s;
@@ -67,4 +74,35 @@
     margin-bottom: 1rem;
     max-width: 85%;
     text-align: center;
+}
+.infoSpanForDelete {
+    font-size: 1.1rem;
+    color: #FFF;
+    margin-bottom: 1rem;
+    max-width: 85%;
+    text-align: center;
+}
+
+.realInfoSpan {
+    font-size: 2rem;
+    color: #be5449;
+}
+
+.deleteButton {
+    background-color: #a30d0d;
+    box-shadow: none;
+}
+
+.deleteButton:hover {
+    background-color: #a03a2f;
+    background: #a03a2f -o-radial-gradient(circle, transparent 1%, #a03a2f 1%) center/15000%;
+    background: #a03a2f radial-gradient(circle, transparent 1%, #a03a2f 1%) center/15000%;
+}
+
+.deleteButton:active {
+    background-color: #a30d0d;
+    background-size: 100%;
+    -webkit-transition: background 0s;
+    -o-transition: background 0s;
+    transition: background 0s;
 }
