@@ -3,7 +3,7 @@ import menu from "./menu.webp"
 import plus from "./plus.webp"
 import sadCat from "./sadCat.webp"
 import line from "./line.svg"
-import { get, set } from "idb-keyval"
+import { get } from "idb-keyval"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
