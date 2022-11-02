@@ -1,5 +1,6 @@
 import {get, set} from "idb-keyval"
 import { v4 as uuidv4 } from 'uuid'
+import toast from "react-simple-toasts"
 
 function AddAccount() {
 	return <></>
@@ -8,7 +9,17 @@ function AddAccount() {
 async function checkAndRemoveIfAccountExists(data) {
     let accounts = await get("accounts")
     if(accounts) {
-        accounts = accounts.filter(account => account.account !== data.account && account.issuer !== data.issuer)
+
+        accounts = accounts.filter(account => {
+
+            if(account.issuer === data.issuer) {
+                if(account.account === data.account) {
+                    toast("Account already exists, updating account...")
+                    return false
+                }
+            }
+            return true
+        })
         return accounts
     }
     return []
