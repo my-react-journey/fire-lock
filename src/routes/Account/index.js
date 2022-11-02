@@ -18,17 +18,19 @@ export default function Account() {
 	let [period, setPeriod] = useState(6)
 	let navigate = useNavigate()
 	let { accountId } = useParams()
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	let returnHome = () => navigate("/")
 
-	// didn't re-render when a new account was added, so I had to use useEffect
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	let retriveData = async () => {
+		let accounts = await get("accounts")
+		let account = accounts.filter((account) => account.id === accountId)[0]
+		if (account != null) return account
+		returnHome()
+	}
+	
 	useEffect(() => {
-		if (window.location.search.includes("update=true")) {
-			window.location.href = window.location.href.replace("?update=true", "")
-		}
-	}, [])
-
-	useEffect(() => {
-		let returnHome = () => navigate("/")
-		async function run() {
+		let run = async () => {
 			let account = await retriveData(accountId)
 			if (account != null) {
 				setIssuer(account.issuer)
@@ -40,14 +42,9 @@ export default function Account() {
 				setPeriod(account.period)
 			}
 		}
-		async function retriveData() {
-			let accounts = await get("accounts")
-			let account = accounts.filter((account) => account.id === accountId)[0]
-			if (account != null) return account
-			returnHome()
-		}
 		run()
-	}, [accountId, navigate])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [retriveData, accountId, returnHome])
 
 	return (
 		<>

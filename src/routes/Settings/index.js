@@ -40,7 +40,7 @@ function SettingsCard(props) {
 			set("accounts", accounts)
 		}
 		run()
-		navigate(`/account/${accountId}?update=true`)
+		navigate(`/account/${accountId}`)
 	}
 
 	useEffect(() => {
