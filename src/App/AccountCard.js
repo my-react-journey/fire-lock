@@ -20,7 +20,7 @@ function AccountCard(props) {
 		<>
             <div className={styles.cardHolder} onClick={handleClick}>
                 <div className={styles.logoHolder}>
-                    <img src={imageSrc} alt={props.label} />
+                    <img src={imageSrc} alt={props.issuer} />
                 </div>
                 <div className={styles.right}>
                     <div className={styles.content}>
