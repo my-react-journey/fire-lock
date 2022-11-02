@@ -13,7 +13,7 @@ export default function Create() {
 
 	let navigate = useNavigate()
 	let handleClick = () => navigate("/manual-entry")
-	let returnHome = () => navigate("/?update=true")
+	let returnHome = () => navigate("/")
 
 	return (
 		<>

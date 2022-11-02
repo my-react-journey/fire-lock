@@ -13,29 +13,43 @@ import AccountCard from "./AccountCard"
 function App() {
     let navigate = useNavigate()
 	let [accounts, setAccounts] = useState()
+	let [accountsLength, setAccountsLength] = useState(0)
 	let [showNoAccounts, setShowNoAccounts] = useState(false)
-
-	// didn't re-render when a new account was added, so I had to use useEffect
-	useEffect(() => {
-		if (window.location.search.includes("update=true")) {
-			window.location.href = window.location.href.replace("?update=true", "")
-		}
-	}, [])
 
 	let addHandler = () => navigate("/create")
 	let menuHandler = () => navigate("/menu")
 
+	// async function run() {
+	// 	console.log("RAN THIS FUNCTION")
+	// 	let accounts = await get("accounts")
+	// 	console.log(accounts.length)
+	// 	if (accounts != null) {
+	// 		setAccounts(accounts)
+	// 		if (accounts.length === 0) {
+	// 			setAccountsLength(accounts.length)
+	// 			setShowNoAccounts(true)
+	// 		}
+	// 		setAccounts(accounts)
+	// 	}
+	// }
+
+	async function retriveData() {
+		let accounts = await get("accounts")
+		return accounts != null ? accounts : []
+	}
+
 	useEffect(() => {
-		get("accounts").then((accounts) => {
-			if( accounts != null) {
-				if(accounts.length !== 0) {
-					setAccounts(accounts)
-					return setShowNoAccounts(false)
-				}
+
+		async function run() {
+			let accounts = await retriveData()
+			setAccounts(accounts)
+			setAccountsLength(accounts.length)
+			if (accounts.length === 0) {
+				setShowNoAccounts(true)
 			}
-			setShowNoAccounts(true)
-		})
-	}, [])
+		}
+		run()
+	}, [accountsLength])
 
 	return (
 		<>
@@ -52,24 +66,7 @@ function App() {
 				</span>
 			</div>
 
-			<div className={styles.mainContent}>
-				{accounts &&
-					accounts.map((account) => (
-						<AccountCard
-							key={account.id}
-							id={account.id}
-							issuer={account.issuer}
-							account={account.account}
-						/>
-					))
-				}
-				{
-					showNoAccounts && (
-						<NoAccounts />
-					)
-				}
-			</div>
-
+			<AccountCards accounts={accounts} showNoAccounts={showNoAccounts} />
 		</>
 	)
 }
@@ -89,5 +86,29 @@ function NoAccounts() {
 
 			<img src={line} alt="Line" className={styles.line} />
 		</>
+	)
+}
+
+function AccountCards(props) {
+	let {accounts, showNoAccounts} = props
+
+	return (
+		<div className={styles.mainContent}>
+			{accounts &&
+				accounts.map((account) => (
+					<AccountCard
+						key={account.id}
+						id={account.id}
+						issuer={account.issuer}
+						account={account.account}
+					/>
+				))
+			}
+			{
+				showNoAccounts && (
+					<NoAccounts />
+				)
+			}
+		</div>
 	)
 }

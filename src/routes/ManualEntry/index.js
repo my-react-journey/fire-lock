@@ -11,7 +11,7 @@ export default function Account() {
 	let secretKeyHook = useRef()
 
 	let navigate = useNavigate()
-	let returnHome = () => navigate("/?update=true")
+	let returnHome = () => navigate("/")
 
 	let instruction = "Enter the details provided by your account provider."
 

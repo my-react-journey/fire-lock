@@ -91,7 +91,7 @@ function DeleteCard(props) {
 			set("accounts", accounts)
 		}
 		run()
-		navigate("/?update=true")
+		navigate("/")
 	}
 
 	return (
