@@ -1,5 +1,6 @@
 import Title from "../../components/Title"
 import styles from "./Import.module.css"
+import Decrypt from "./Decrypt"
 import fileDecryptImage from "./decrypt.webp"
 
 export default function Import() {
@@ -20,7 +21,7 @@ export default function Import() {
 					height={100}
 				/>
 
-			<span>This is the Import page</span>
+				<Decrypt />
 			</div>
 		</>
 	)
