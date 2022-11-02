@@ -47,7 +47,7 @@ function MenuCard (props) {
 		<div className={styles.menuCard} onClick={handleClick}>
 			<Icons icon={icon} />
 			<MenuContent title={title} description={description} />
-			<Navigation navigation={navigation} />
+			<Navigation />
 		</div>
 	)
 }
@@ -65,8 +65,7 @@ function Icons(props) {
 	)
 }
 
-function Navigation(props) {
-	let { navigation } = props
+function Navigation() {
 
 	return (
 		<div className={styles.menuCardNavigation}>
