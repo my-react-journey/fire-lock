@@ -19,20 +19,6 @@ function App() {
 	let addHandler = () => navigate("/create")
 	let menuHandler = () => navigate("/menu")
 
-	// async function run() {
-	// 	console.log("RAN THIS FUNCTION")
-	// 	let accounts = await get("accounts")
-	// 	console.log(accounts.length)
-	// 	if (accounts != null) {
-	// 		setAccounts(accounts)
-	// 		if (accounts.length === 0) {
-	// 			setAccountsLength(accounts.length)
-	// 			setShowNoAccounts(true)
-	// 		}
-	// 		setAccounts(accounts)
-	// 	}
-	// }
-
 	async function retriveData() {
 		let accounts = await get("accounts")
 		return accounts != null ? accounts : []
