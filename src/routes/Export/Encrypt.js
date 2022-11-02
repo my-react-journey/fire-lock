@@ -14,6 +14,12 @@ function Encrypt() {
 	}
 
 	let handleClick = async () => {
+
+		if(key.length < 5) {
+			alert("Password must be at least 5 characters long")
+			return
+		}
+
 		let accounts = await get("accounts")
 		let string = JSON.stringify(accounts)
 		let output = encrypt(string, key)
@@ -28,7 +34,7 @@ function Encrypt() {
 		let url = URL.createObjectURL(file)
 		let a = document.createElement("a")
 		a.href = url
-		a.download = "backup.txt"
+		a.download = `${fileName}.${fileExtn}`
 		a.click()
 	}
 
@@ -45,7 +51,7 @@ function Encrypt() {
 					value={key}
 					ref={inputRef}
 					type="text"
-					placeholder="Enter Keyphrase"
+					placeholder="Enter Keyphrase (required)"
 					autoFocus
 				/>
 			</div>
