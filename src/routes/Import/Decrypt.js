@@ -9,7 +9,7 @@ function Decrypt() {
 	let inputRef = useRef()
 	let fileRef = useRef()
 	let [key, setKey] = useState("")
-	let [info, setInfo] = useState("Enter the password you entered while exporting a backup and then select the backup file.")
+	let [info, setInfo] = useState("Enter the password you entered while exporting a backup and also select the backup file.")
 	let [infoClass, setInfoClass] = useState(styles.importantText)
 	let navigate = useNavigate()
 
