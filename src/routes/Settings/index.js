@@ -8,7 +8,7 @@ export default function Settings() {
 	let { accountId } = useParams()
 	return (
 		<>
-			<Title titleName="Settings" />
+			<Title titleName="Settings" back={`/account/${accountId}`} />
 			<div className={styles.container}>
 				<SettingsCard accountId={accountId} />
 				<DeleteCard accountId={accountId} />
