@@ -28,7 +28,7 @@ function SettingsCard(props) {
 		setIssuer(issuerInput.current.value)
 	}
 
-	let saveToDatabase = () => {
+	let saveToDatabase = async () => {
 		async function run() {
 			let accounts = await get("accounts")
 
@@ -39,7 +39,7 @@ function SettingsCard(props) {
 			})
 			set("accounts", accounts)
 		}
-		run()
+		await run()
 		navigate(`/account/${accountId}`)
 	}
 
@@ -84,13 +84,13 @@ function DeleteCard(props) {
 	let navigate = useNavigate()
 	let { accountId } = props
 
-	let handleDelete = () => {
+	let handleDelete = async () => {
 		async function run() {
 			let accounts = await get("accounts")
 			accounts = accounts.filter(account => account.id !== accountId)
 			set("accounts", accounts)
 		}
-		run()
+		await run()
 		navigate("/")
 	}
 
