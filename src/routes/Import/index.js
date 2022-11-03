@@ -10,7 +10,7 @@ export default function Import() {
 
 			<div className={styles.import}>
 				<span className={styles.infoSpan}>
-					Import your accounts from a filelock backup file
+					Import your accounts from a firelock backup file
 				</span>
 
 				<img
