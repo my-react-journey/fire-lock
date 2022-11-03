@@ -69,6 +69,12 @@ function Decrypt() {
 		<>
 			<div className={styles.inputField}>
 				<span className={infoClass}>{info}</span>
+				
+				<label htmlFor="textFile" className={styles.dropContainer}>
+					<span className={styles.dropTitle}>Drop file here or</span>
+					<input ref={fileRef} type="file" id="textFile" accept="file/*" required />
+				</label>
+
 				<input
 					onInput={handleInput}
 					value={key}
@@ -77,10 +83,6 @@ function Decrypt() {
 					placeholder="Enter Keyphrase (required)"
 				/>
 
-				<label htmlFor="textFile" className={styles.dropContainer}>
-					<span className={styles.dropTitle}>Drop file here or</span>
-					<input ref={fileRef} type="file" id="textFile" accept="file/*" required />
-				</label>
 			</div>
 
 			<div>
