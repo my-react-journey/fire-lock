@@ -1,4 +1,6 @@
 - [x] Make icon rounded rectangle ✅
+    - [x] Use command `pwa-asset-generator  ../app.png -r`
+    - [x] Replace all manifest logos and splash images with the new icon
 - [x] Check the first time scan/enter to add account logic - doesn't render the first time
 - add about page
     - [x] fixed logic (because of not using async before navigate)
