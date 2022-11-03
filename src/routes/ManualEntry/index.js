@@ -16,7 +16,7 @@ export default function Account() {
 	let instruction = "Enter the details provided by your account provider."
 
 
-	let submitHandler = () => {
+	let submitHandler = async () => {
 		let issuerName = issuerNameHook.current.value
 		let accountName = accountNameHook.current.value
 		let secretKey = secretKeyHook.current.value
@@ -25,7 +25,7 @@ export default function Account() {
 		if(account != null) {
 			let data = constructData(account)
 			data = retriveData(data)
-			addNewAccount(data)
+			await addNewAccount(data)
 			returnHome()
 		}	
 	}

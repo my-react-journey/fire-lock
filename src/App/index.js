@@ -11,25 +11,24 @@ import AccountCard from "./AccountCard"
 
 function App() {
 	let [accounts, setAccounts] = useState()
-	let [accountsLength, setAccountsLength] = useState(0)
 	let [showNoAccounts, setShowNoAccounts] = useState(false)
 
 	async function retriveData() {
 		let accounts = await get("accounts")
 		return accounts != null ? accounts : []
 	}
+	
+	async function run() {
+		let accounts = await retriveData()
+		setAccounts(accounts)
+		if (accounts.length === 0) {
+			setShowNoAccounts(true)
+		}
+	}
 
 	useEffect(() => {
-		async function run() {
-			let accounts = await retriveData()
-			setAccounts(accounts)
-			setAccountsLength(accounts.length)
-			if (accounts.length === 0) {
-				setShowNoAccounts(true)
-			}
-		}
 		run()
-	}, [accountsLength])
+	}, [])
 
 	return (
 		<>

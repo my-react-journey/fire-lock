@@ -30,11 +30,11 @@ export default function Create() {
 					}}
 					videoContainerStyle={{ width: "65vw", borderRadius: "12px", paddingTop: "98%" }}
 					videoStyle={{ width: "85vw", height: "unset", borderRadius: "12px" }}
-					onResult={(result, error) => {
+					onResult={async (result, error) => {
 						if (!!result) {
 							let data = validateQR(result?.text)
 							if( data != null) {
-								addNewAccount(data)
+								await addNewAccount(data)
 								returnHome()
 							} else {
 								console.log(data)
