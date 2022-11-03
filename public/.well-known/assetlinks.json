@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "dev.pages.firelock.twa",
+                 "sha256_cert_fingerprints": [" BC:55:9C:08:2D:55:A5:66:E7:53:B6:34:E3:1C:C9:FE:48:31:A8:61:89:A9:EF:CC:0F:6B:8D:0C:FB:C4:F2:1A"] }
+  }]
