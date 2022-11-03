@@ -35,7 +35,13 @@
       "icons": [
         {
           "src": "./add.png",
-          "sizes": "96x96",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "./add.png",
+          "sizes": "128x128",
           "type": "image/png",
           "purpose": "maskable"
         }
@@ -48,7 +54,13 @@
       "icons": [
         {
           "src": "./about.png",
-          "sizes": "96x96",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "./about.png",
+          "sizes": "128x128",
           "type": "image/png",
           "purpose": "maskable"
         }
