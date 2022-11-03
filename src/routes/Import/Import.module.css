@@ -26,7 +26,11 @@
 	color: white;
 	font-size: 1.2rem;
 	margin-bottom: 0.5rem;
-	outline: 1px solid #ffffff2e;
+	outline: 1px solid #000000;
+}
+
+.inputField input[type="text"]:hover , .inputField input[type="text"]:focus {
+	outline: 1px solid #ffffff6e;
 }
 
 .button {
