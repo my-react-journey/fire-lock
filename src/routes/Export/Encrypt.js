@@ -52,7 +52,6 @@ function Encrypt() {
 					ref={inputRef}
 					type="text"
 					placeholder="Enter Keyphrase (required)"
-					autoFocus
 				/>
 			</div>
 
@@ -62,7 +61,7 @@ function Encrypt() {
 					type="button"
 					className={styles.button}
 				>
-					Export
+					Export Accounts
 				</button>
 			</div>
 		</>

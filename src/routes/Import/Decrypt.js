@@ -75,7 +75,6 @@ function Decrypt() {
 					ref={inputRef}
 					type="text"
 					placeholder="Enter Keyphrase (required)"
-					autoFocus
 				/>
 
 				<label htmlFor="textFile" className={styles.dropContainer}>
