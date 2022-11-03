@@ -27,9 +27,10 @@ export default function Create() {
 						borderRadius: "12px",
 						display: "grid",
 						placeItems: "center",
+						maxWidth: "400px"
 					}}
-					videoContainerStyle={{ width: "65vw", borderRadius: "12px", paddingTop: "98%" }}
-					videoStyle={{ width: "85vw", height: "unset", borderRadius: "12px" }}
+					videoContainerStyle={{ width: "65vw", borderRadius: "12px", paddingTop: "98%", maxWidth: "400px" }}
+					videoStyle={{ width: "85vw", height: "unset", borderRadius: "12px", maxWidth: "400px" }}
 					onResult={async (result, error) => {
 						if (!!result) {
 							let data = validateQR(result?.text)
