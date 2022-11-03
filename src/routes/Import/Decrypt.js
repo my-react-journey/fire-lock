@@ -2,6 +2,7 @@ import styles from "./Import.module.css"
 import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { DAATS } from "./ImportHelperFunction"
+import toast from "react-simple-toasts"
 
 function Decrypt() {
 
@@ -48,11 +49,8 @@ function Decrypt() {
 			let didSucceed = await DAATS(encrypted, keyValue, setInfo, setInfoClass, styles)
 
 			if(didSucceed.success) {
-				setInfo("Accounts successfully imported.")
-				setInfoClass(styles.successText)
-				setTimeout(() => {
-					navigate("/")
-				}, 1000)
+				navigate("/")
+				toast("Accounts successfully imported.")
 			}
 
 			setInfo(didSucceed.message)
