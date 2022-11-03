@@ -1,0 +1,6 @@
+- Make icon rounded rectangle
+- Replace all manifest logos and splash images with the new icon
+- [x] Check the first time scan/enter to add account logic - doesn't render the first time
+- add about page
+- add title of pages sticky
+- autofocus is too much intrusive

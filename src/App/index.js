@@ -68,6 +68,7 @@ function NoAccounts() {
 				<span className={styles.noAccountsText}>No Accounts</span>
 
 				<span className={styles.noAccountsSubText}>Add an account by pressing the + button</span>
+				<span className={styles.noAccountsSubText}>Still not seeing anything? Try refreshing!</span>
 			</div>
 
 			<img src={line} alt="Line" className={styles.line} />
