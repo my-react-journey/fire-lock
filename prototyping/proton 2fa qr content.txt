@@ -1,1 +1,0 @@
-otpauth://totp/meowmeow@proton.me?secret=NNVMKIVA257YSUOP3RCURP7TVAFMQVNY&issuer=Proton&algorithm=SHA1&digits=6&period=30
