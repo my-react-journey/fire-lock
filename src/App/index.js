@@ -7,17 +7,12 @@ import { get } from "idb-keyval"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-
 import AccountCard from "./AccountCard"
 
 function App() {
-    let navigate = useNavigate()
 	let [accounts, setAccounts] = useState()
 	let [accountsLength, setAccountsLength] = useState(0)
 	let [showNoAccounts, setShowNoAccounts] = useState(false)
-
-	let addHandler = () => navigate("/create")
-	let menuHandler = () => navigate("/menu")
 
 	async function retriveData() {
 		let accounts = await get("accounts")
@@ -25,7 +20,6 @@ function App() {
 	}
 
 	useEffect(() => {
-
 		async function run() {
 			let accounts = await retriveData()
 			setAccounts(accounts)
@@ -39,26 +33,13 @@ function App() {
 
 	return (
 		<>
-			<div className={styles.header}>
-				
-				<span className={styles.appName}>Fire Lock</span>
-
-				<span className={styles.actionIconsAdd} onClick={addHandler}>
-					<img src={plus} alt="Add" />
-				</span>
-
-				<span className={styles.actionIconsMenu} onClick={menuHandler}>
-					<img src={menu} alt="Menu" />
-				</span>
-			</div>
-
+			<AppTitle />
 			<AccountCards accounts={accounts} showNoAccounts={showNoAccounts} />
 		</>
 	)
 }
 
 export default App
-
 
 function NoAccounts() {
 	return (
@@ -67,8 +48,12 @@ function NoAccounts() {
 				<img src={sadCat} alt="No Accounts" />
 				<span className={styles.noAccountsText}>No Accounts</span>
 
-				<span className={styles.noAccountsSubText}>Add an account by pressing the + button</span>
-				<span className={styles.noAccountsSubText}>Still not seeing anything? Try refreshing!</span>
+				<span className={styles.noAccountsSubText}>
+					Add an account by pressing the + button
+				</span>
+				<span className={styles.noAccountsSubText}>
+					Still not seeing anything? Try refreshing!
+				</span>
 			</div>
 
 			<img src={line} alt="Line" className={styles.line} />
@@ -77,7 +62,7 @@ function NoAccounts() {
 }
 
 function AccountCards(props) {
-	let {accounts, showNoAccounts} = props
+	let { accounts, showNoAccounts } = props
 
 	return (
 		<div className={styles.mainContent}>
@@ -89,13 +74,28 @@ function AccountCards(props) {
 						issuer={account.issuer}
 						account={account.account}
 					/>
-				))
-			}
-			{
-				showNoAccounts && (
-					<NoAccounts />
-				)
-			}
+				))}
+			{showNoAccounts && <NoAccounts />}
+		</div>
+	)
+}
+
+function AppTitle() {
+	let navigate = useNavigate()
+
+	let addHandler = () => navigate("/create")
+	let menuHandler = () => navigate("/menu")
+	return (
+		<div className={styles.header}>
+			<span className={styles.appName}>Fire Lock</span>
+
+			<span className={styles.actionIconsAdd} onClick={addHandler}>
+				<img src={plus} alt="Add" />
+			</span>
+
+			<span className={styles.actionIconsMenu} onClick={menuHandler}>
+				<img src={menu} alt="Menu" />
+			</span>
 		</div>
 	)
 }

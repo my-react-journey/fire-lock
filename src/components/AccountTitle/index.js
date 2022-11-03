@@ -6,6 +6,10 @@ import { returnIssuerImage } from "../AddAccount"
 import { useNavigate } from "react-router-dom"
 
 function Title(props) {
+
+	let { titleName } = props
+	titleName = titleName === undefined ? "Account" : titleName.trim()
+	
 	let navigate = useNavigate()
 	let imageSrc = returnIssuerImage(props.issuer, ".")
 
@@ -33,7 +37,7 @@ function Title(props) {
 						<img src={left} alt="Go Back" />
 					</span>
 
-					<span className={styles.appName}>{props.titleName}</span>
+					<span className={styles.appName}>{titleName}</span>
 
 					<span
 						className={`${styles.actionIconsAdd} ${styles.cogIcon}`}
