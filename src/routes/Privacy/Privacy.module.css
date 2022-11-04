@@ -1,108 +1,21 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.settingsCard, .deleteCard {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.deleteCard {
-    padding: 1rem;
-    border-radius: 12px;
-    margin: 2rem;
-    background-color: #121212;
-}
-
-.container input[type="text"] {
-    width: 85%;
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 9px;
-    background-color: #ffffff17;
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    outline: 1px solid #ffffff2e;
-}
-
-.button, .deleteButton {
-    padding: 0.5rem 0.8rem;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    color: #FFF;
-    background-color: #0070f3;
-    border: 0;
-    outline: none;
-    margin-top: 1rem;
-    -webkit-box-shadow: 4px 4px 3px 1px #b0b0b01f;
-    box-shadow: 4px 4px 3px 1px #b0b0b01f;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    background-position: center;
-    -webkit-transition: background 0.8s;
-    -o-transition: background 0.8s;
-    transition: background 0.8s;
-}
-
-.button:hover, .deleteButton:hover {
-    background-color: #005ac2;
-    background: #005ac2 -o-radial-gradient(circle, transparent 1%, #005ac2 1%) center/15000%;
-    background: #005ac2 radial-gradient(circle, transparent 1%, #005ac2 1%) center/15000%;
-}
-
-.button:active, .deleteButton:active {
-    background-color: #0070f3;
-    background-size: 100%;
-    -webkit-transition: background 0s;
-    -o-transition: background 0s;
-    transition: background 0s;
+.privacy {
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .infoSpan {
-    font-size: 1.1rem;
-    color: #ffffff8a;
-    margin-bottom: 1rem;
-    max-width: 85%;
-    text-align: center;
-}
-.infoSpanForDelete {
-    font-size: 1.1rem;
-    color: #FFF;
-    margin-bottom: 1rem;
-    max-width: 85%;
-    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
 }
 
-.realInfoSpan {
+.privacyPolicy {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.privacyPolicyTitle {
     font-size: 2rem;
-    color: #be5449;
-}
-
-.deleteButton {
-    background-color: #a30d0d;
-    box-shadow: none;
-}
-
-.deleteButton:hover {
-    background-color: #a03a2f;
-    background: #a03a2f -o-radial-gradient(circle, transparent 1%, #a03a2f 1%) center/15000%;
-    background: #a03a2f radial-gradient(circle, transparent 1%, #a03a2f 1%) center/15000%;
-}
-
-.deleteButton:active {
-    background-color: #a30d0d;
-    background-size: 100%;
-    -webkit-transition: background 0s;
-    -o-transition: background 0s;
-    transition: background 0s;
+    margin: 20px 0;
+    color: #fff;
 }
