@@ -51,11 +51,12 @@ export async function DAATS(string, key) {
         
     } catch (error) {
 
-        if(error.message === "Unexpected token u in JSON at position 0") {
-            returnData.success = false
-            returnData.message = "The file is not a valid filelock backup file."
-            return returnData
-        }
+        // doesn't work if they export when no accounts found
+        // if(error.message === "Unexpected token u in JSON at position 0") {
+        //     returnData.success = false
+        //     returnData.message = "The file is not a valid filelock backup file."
+        //     return returnData
+        // }
 
         returnData.success = false
         returnData.message = "Incorrect password. Please try again. Did you choose the correct file?"
